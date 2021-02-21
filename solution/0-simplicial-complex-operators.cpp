@@ -3,6 +3,7 @@
 
 using namespace geometrycentral;
 using namespace geometrycentral::surface;
+using T = Eigen::Triplet<size_t>;
 
 /*
  * Assign a unique index to each vertex, edge, and face of a mesh.
@@ -46,12 +47,17 @@ void SimplicialComplexOperators::assignElementIndices() {
  * Returns: The sparse vertex-edge adjacency matrix which gets stored in the global variable A0.
  */
 SparseMatrix<size_t> SimplicialComplexOperators::buildVertexEdgeAdjacencyMatrix() const {
-
-    // TODO
     // Note: You can build an Eigen sparse matrix from triplets, then return it as a Geometry Central SparseMatrix.
     // See <https://eigen.tuxfamily.org/dox/group__TutorialSparse.html> for documentation.
-
-    return identityMatrix<size_t>(1); // placeholder
+    std::vector<T> triplets;
+    for (Edge e : mesh->edges()) {
+        for (Vertex v : e.adjacentVertices()) {
+            triplets.push_back( T(e.getIndex(), v.getIndex(), 1) );
+        }
+    }
+    SparseMatrix<size_t> matrix(mesh->nEdges(), mesh->nVertices());
+    matrix.setFromTriplets(triplets.begin(), triplets.end());
+    return matrix;
 }
 
 /*
@@ -61,9 +67,15 @@ SparseMatrix<size_t> SimplicialComplexOperators::buildVertexEdgeAdjacencyMatrix(
  * Returns: The sparse face-edge adjacency matrix which gets stored in the global variable A1.
  */
 SparseMatrix<size_t> SimplicialComplexOperators::buildFaceEdgeAdjacencyMatrix() const {
-
-    // TODO
-    return identityMatrix<size_t>(1); // placeholder
+    std::vector<T> triplets;
+    for (Face f : mesh->faces()) {
+        for (Edge e : f.adjacentEdges()) {
+            triplets.push_back( T(f.getIndex(), e.getIndex(), 1) );
+        }
+    }
+    SparseMatrix<size_t> matrix(mesh->nFaces(), mesh->nEdges());
+    matrix.setFromTriplets(triplets.begin(), triplets.end());
+    return matrix;
 }
 
 /*
