@@ -7,6 +7,8 @@ using SM = SparseMatrix<size_t>;
 using Trp = Eigen::Triplet<size_t>;
 using Vec = Vector<size_t>;
 
+#define range(stop) for (size_t i=0; i<stop; ++i)
+
 /*
  * Assign a unique index to each vertex, edge, and face of a mesh.
  * All elements are 0-indexed.
@@ -15,31 +17,13 @@ using Vec = Vector<size_t>;
  * Returns: None.
  */
 void SimplicialComplexOperators::assignElementIndices() {
-
-    // You can set the index field of a vertex via geometry->vertexIndices[v], where v is a Vertex object (or an
-    // integer). Similarly you can do edges and faces via geometry->edgeIndices, geometry->faceIndices, like so:
-
-    for (size_t i = 0; i < mesh->nVertices(); i++) {
-        geometry->vertexIndices[i] = i;
-    }
-
-    // // This is also valid:
     // size_t idx = 0;
     // for (Vertex v : mesh->vertices()) {
-    //     geometry->vertexIndices[v] = idx;
-    //     idx++;
+    //     geometry->vertexIndices[v] = idx++;
     // }
-
-    for (size_t i = 0; i < mesh->nEdges(); i++) {
-        geometry->edgeIndices[i] = i;
-    }
-
-    for (size_t i = 0; i < mesh->nFaces(); i++) {
-        geometry->faceIndices[i] = i;
-    }
-
-    // Geometry Central already sets the indices for us, though, so this function is just here for demonstration.
-    // You don't have to do anything :)
+    range(mesh->nVertices()) geometry->vertexIndices[i] = i;
+    range(mesh->nEdges()) geometry->edgeIndices[i] = i;
+    range(mesh->nFaces()) geometry->faceIndices[i] = i;
 }
 
 /*
@@ -125,22 +109,14 @@ Vec SimplicialComplexOperators::buildFaceVector(const MeshSubset& subset) const 
 MeshSubset SimplicialComplexOperators::star(const MeshSubset& subset) const {
     MeshSubset star = subset.deepCopy();
 
-    Vec vertexVec = this->buildVertexVector(subset);
-    for (size_t i = 0; i < mesh->nVertices(); i++) {
-        if (vertexVec[i] != 0) star.addVertex(i);
-    }
+    Vec vertices = buildVertexVector(subset);
+    range(mesh->nVertices()) if (vertices[i]) star.addVertex(i);
 
-    Vec edgeVec = this->buildEdgeVector(subset);
-    edgeVec += this->buildVertexEdgeAdjacencyMatrix() * vertexVec;
-    for (size_t i = 0; i < mesh->nEdges(); i++) {
-        if (edgeVec[i] != 0) star.addEdge(i);
-    }
+    Vec edges = buildEdgeVector(subset) + buildVertexEdgeAdjacencyMatrix() * vertices;
+    range(mesh->nEdges()) if (edges[i] ) star.addEdge(i);
 
-    Vec faceVec = this->buildFaceVector(subset);
-    faceVec += this->buildFaceEdgeAdjacencyMatrix() * edgeVec;
-    for (size_t i = 0; i < mesh->nFaces(); i++) {
-        if (faceVec[i] != 0) star.addFace(i);
-    }
+    Vec faces = buildFaceVector(subset) + buildFaceEdgeAdjacencyMatrix() * edges;
+    range(mesh->nFaces()) if (faces[i]) star.addFace(i);
 
     return star;
 }
@@ -153,9 +129,22 @@ MeshSubset SimplicialComplexOperators::star(const MeshSubset& subset) const {
  * Returns: The closure of the given subset.
  */
 MeshSubset SimplicialComplexOperators::closure(const MeshSubset& subset) const {
+    MeshSubset closure = subset.deepCopy();
+    SM FE = buildFaceEdgeAdjacencyMatrix();
+    for (size_t f : closure.faces) {
+        range(mesh->nEdges()) {
+            if (FE.coeff(f, i)) closure.addEdge(i);
+        }
+    }
 
-    // TODO
-    return subset; // placeholder
+    SM EV = buildVertexEdgeAdjacencyMatrix();
+    for (size_t e : closure.edges) {
+        range(mesh->nVertices()) {
+            if (EV.coeff(e, i)) closure.addVertex(i);
+        }
+    }
+
+    return closure;
 }
 
 /*
@@ -165,9 +154,9 @@ MeshSubset SimplicialComplexOperators::closure(const MeshSubset& subset) const {
  * Returns: The link of the given subset.
  */
 MeshSubset SimplicialComplexOperators::link(const MeshSubset& subset) const {
-
-    // TODO
-    return subset; // placeholder
+    MeshSubset link = closure(star(subset));
+    link.deleteSubset( star(closure(subset)) );
+    return link;
 }
 
 /*

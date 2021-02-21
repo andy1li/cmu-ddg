@@ -12,6 +12,6 @@
 | 2B       |                   | Introduction to Manifolds                                    |       |
 |          | Reading 2         | Chapter 2, Pages 7–20                                        |       |
 |          | Asgmt 0 (Written) | Chapter 2, 15 Exercises                                      |       |
-|          | Asgmt 0 (Coding)  | ✅ 1. `assignElementIndices`<br />✅ 2. `buildVertexEdgeAdjacencyMatrix`<br />✅ 3. `buildEdgeFaceAdjacencyMatrix`<br />✅ 4. `buildVertexVector`<br /> `buildEdgeVector`<br /> `buildFaceVector`<br />✅ 5. `star`<br />6. `closure`<br />7. `link`<br />8. `isComplex`, `isPureComplex`<br />9. `boundary` |       |
+|          | Asgmt 0 (Coding)  | ✅ 1. `assignElementIndices`<br />✅ 2. `buildVertexEdgeAdjacencyMatrix`<br />✅ 3. `buildEdgeFaceAdjacencyMatrix`<br />✅ 4. `buildVertexVector`<br /> `buildEdgeVector`<br /> `buildFaceVector`<br />✅ 5. `star`<br />✅ 6. `closure`<br />✅ 7. `link`<br />8. `isComplex`, `isPureComplex`<br />9. `boundary` |       |
 |          |                   |                                                              |       |
 
