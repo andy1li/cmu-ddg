@@ -3,7 +3,9 @@
 
 using namespace geometrycentral;
 using namespace geometrycentral::surface;
-using T = Eigen::Triplet<size_t>;
+using SM = SparseMatrix<size_t>;
+using Trp = Eigen::Triplet<size_t>;
+using Vec = Vector<size_t>;
 
 /*
  * Assign a unique index to each vertex, edge, and face of a mesh.
@@ -46,16 +48,16 @@ void SimplicialComplexOperators::assignElementIndices() {
  * Input:
  * Returns: The sparse vertex-edge adjacency matrix which gets stored in the global variable A0.
  */
-SparseMatrix<size_t> SimplicialComplexOperators::buildVertexEdgeAdjacencyMatrix() const {
+SM SimplicialComplexOperators::buildVertexEdgeAdjacencyMatrix() const {
     // Note: You can build an Eigen sparse matrix from triplets, then return it as a Geometry Central SparseMatrix.
     // See <https://eigen.tuxfamily.org/dox/group__TutorialSparse.html> for documentation.
-    std::vector<T> triplets;
+    std::vector<Trp> triplets;
     for (Edge e : mesh->edges()) {
         for (Vertex v : e.adjacentVertices()) {
-            triplets.push_back( T(e.getIndex(), v.getIndex(), 1) );
+            triplets.push_back( Trp(e.getIndex(), v.getIndex(), 1) );
         }
     }
-    SparseMatrix<size_t> matrix(mesh->nEdges(), mesh->nVertices());
+    SM matrix(mesh->nEdges(), mesh->nVertices());
     matrix.setFromTriplets(triplets.begin(), triplets.end());
     return matrix;
 }
@@ -66,14 +68,14 @@ SparseMatrix<size_t> SimplicialComplexOperators::buildVertexEdgeAdjacencyMatrix(
  * Input:
  * Returns: The sparse face-edge adjacency matrix which gets stored in the global variable A1.
  */
-SparseMatrix<size_t> SimplicialComplexOperators::buildFaceEdgeAdjacencyMatrix() const {
-    std::vector<T> triplets;
+SM SimplicialComplexOperators::buildFaceEdgeAdjacencyMatrix() const {
+    std::vector<Trp> triplets;
     for (Face f : mesh->faces()) {
         for (Edge e : f.adjacentEdges()) {
-            triplets.push_back( T(f.getIndex(), e.getIndex(), 1) );
+            triplets.push_back( Trp(f.getIndex(), e.getIndex(), 1) );
         }
     }
-    SparseMatrix<size_t> matrix(mesh->nFaces(), mesh->nEdges());
+    SM matrix(mesh->nFaces(), mesh->nEdges());
     matrix.setFromTriplets(triplets.begin(), triplets.end());
     return matrix;
 }
@@ -84,10 +86,10 @@ SparseMatrix<size_t> SimplicialComplexOperators::buildFaceEdgeAdjacencyMatrix() 
  * Input: Selected subset of simplices.
  * Returns: Vector of length |V|, where |V| = # of vertices in the mesh.
  */
-Vector<size_t> SimplicialComplexOperators::buildVertexVector(const MeshSubset& subset) const {
-
-    // TODO
-    return Vector<size_t>::Zero(1);
+Vec SimplicialComplexOperators::buildVertexVector(const MeshSubset& subset) const {
+    Vec vector = Vec::Zero( mesh->nVertices() );
+    for (size_t i : subset.vertices) vector[i] = 1;
+    return vector;
 }
 
 /*
@@ -96,10 +98,10 @@ Vector<size_t> SimplicialComplexOperators::buildVertexVector(const MeshSubset& s
  * Input: Selected subset of simplices.
  * Returns: Vector of length |E|, where |E| = # of edges in mesh.
  */
-Vector<size_t> SimplicialComplexOperators::buildEdgeVector(const MeshSubset& subset) const {
-
-    // TODO
-    return Vector<size_t>::Zero(1);
+Vec SimplicialComplexOperators::buildEdgeVector(const MeshSubset& subset) const {
+    Vec vector = Vec::Zero( mesh->nEdges() );
+    for (size_t i : subset.edges) vector[i] = 1;
+    return vector;
 }
 
 /*
@@ -108,10 +110,10 @@ Vector<size_t> SimplicialComplexOperators::buildEdgeVector(const MeshSubset& sub
  * Input: Selected subset of simplices.
  * Returns: Vector of length |F|, where |F| = # of faces in mesh.
  */
-Vector<size_t> SimplicialComplexOperators::buildFaceVector(const MeshSubset& subset) const {
-
-    // TODO
-    return Vector<size_t>::Zero(1);
+Vec SimplicialComplexOperators::buildFaceVector(const MeshSubset& subset) const {
+    Vec vector = Vec::Zero( mesh->nFaces() );
+    for (size_t i : subset.faces) vector[i] = 1;
+    return vector;
 }
 
 /*
@@ -121,9 +123,26 @@ Vector<size_t> SimplicialComplexOperators::buildFaceVector(const MeshSubset& sub
  * Returns: The star of the given subset.
  */
 MeshSubset SimplicialComplexOperators::star(const MeshSubset& subset) const {
+    MeshSubset star = subset.deepCopy();
 
-    // TODO
-    return subset; // placeholder
+    Vec vertexVec = this->buildVertexVector(subset);
+    for (size_t i = 0; i < mesh->nVertices(); i++) {
+        if (vertexVec[i] != 0) star.addVertex(i);
+    }
+
+    Vec edgeVec = this->buildEdgeVector(subset);
+    edgeVec += this->buildVertexEdgeAdjacencyMatrix() * vertexVec;
+    for (size_t i = 0; i < mesh->nEdges(); i++) {
+        if (edgeVec[i] != 0) star.addEdge(i);
+    }
+
+    Vec faceVec = this->buildFaceVector(subset);
+    faceVec += this->buildFaceEdgeAdjacencyMatrix() * edgeVec;
+    for (size_t i = 0; i < mesh->nFaces(); i++) {
+        if (faceVec[i] != 0) star.addFace(i);
+    }
+
+    return star;
 }
 
 
