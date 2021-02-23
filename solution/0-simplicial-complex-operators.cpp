@@ -4,6 +4,8 @@
 using namespace geometrycentral;
 using namespace geometrycentral::surface;
 using SM = SparseMatrix<size_t>;
+using SMRow = Eigen::SparseMatrix<size_t, Eigen::RowMajor>;
+using SMRowIt = SMRow::InnerIterator;
 using Trp = Eigen::Triplet<size_t>;
 using Vec = Vector<size_t>;
 
@@ -36,11 +38,11 @@ SM SimplicialComplexOperators::buildVertexEdgeAdjacencyMatrix() const {
     // Note: You can build an Eigen sparse matrix from triplets, then return it as a Geometry Central SparseMatrix.
     // See <https://eigen.tuxfamily.org/dox/group__TutorialSparse.html> for documentation.
     std::vector<Trp> triplets;
-    for (Edge e : mesh->edges()) {
-        for (Vertex v : e.adjacentVertices()) {
-            triplets.push_back( Trp(e.getIndex(), v.getIndex(), 1) );
-        }
-    }
+    for (Edge e : mesh->edges())
+        for (Vertex v : e.adjacentVertices())
+            triplets.push_back( 
+                Trp(e.getIndex(), v.getIndex(), 1) 
+            );
     SM matrix(mesh->nEdges(), mesh->nVertices());
     matrix.setFromTriplets(triplets.begin(), triplets.end());
     return matrix;
@@ -54,11 +56,11 @@ SM SimplicialComplexOperators::buildVertexEdgeAdjacencyMatrix() const {
  */
 SM SimplicialComplexOperators::buildFaceEdgeAdjacencyMatrix() const {
     std::vector<Trp> triplets;
-    for (Face f : mesh->faces()) {
-        for (Edge e : f.adjacentEdges()) {
-            triplets.push_back( Trp(f.getIndex(), e.getIndex(), 1) );
-        }
-    }
+    for (Face f : mesh->faces()) 
+        for (Edge e : f.adjacentEdges()) 
+            triplets.push_back( 
+                Trp(f.getIndex(), e.getIndex(), 1) 
+            );
     SM matrix(mesh->nFaces(), mesh->nEdges());
     matrix.setFromTriplets(triplets.begin(), triplets.end());
     return matrix;
@@ -112,15 +114,14 @@ MeshSubset SimplicialComplexOperators::star(const MeshSubset& subset) const {
     Vec vertices = buildVertexVector(subset);
     range(mesh->nVertices()) if (vertices[i]) star.addVertex(i);
 
-    Vec edges = buildEdgeVector(subset) + buildVertexEdgeAdjacencyMatrix() * vertices;
-    range(mesh->nEdges()) if (edges[i] ) star.addEdge(i);
+    Vec edges = buildEdgeVector(subset) + A0 * vertices;
+    range(mesh->nEdges()) if (edges[i]) star.addEdge(i);
 
-    Vec faces = buildFaceVector(subset) + buildFaceEdgeAdjacencyMatrix() * edges;
+    Vec faces = buildFaceVector(subset) + A1 * edges;
     range(mesh->nFaces()) if (faces[i]) star.addFace(i);
 
     return star;
 }
-
 
 /*
  * Compute the closure Cl(S) of the selected subset of simplices.
@@ -130,20 +131,12 @@ MeshSubset SimplicialComplexOperators::star(const MeshSubset& subset) const {
  */
 MeshSubset SimplicialComplexOperators::closure(const MeshSubset& subset) const {
     MeshSubset closure = subset.deepCopy();
-    SM FE = buildFaceEdgeAdjacencyMatrix();
-    for (size_t f : closure.faces) {
-        range(mesh->nEdges()) {
-            if (FE.coeff(f, i)) closure.addEdge(i);
-        }
-    }
-
-    SM EV = buildVertexEdgeAdjacencyMatrix();
-    for (size_t e : closure.edges) {
-        range(mesh->nVertices()) {
-            if (EV.coeff(e, i)) closure.addVertex(i);
-        }
-    }
-
+    for (size_t f : closure.faces)
+        for (SMRowIt it((SMRow)A1, f); it; ++it) 
+            closure.addEdge( it.col() );
+    for (size_t e : closure.edges)
+        for (SMRowIt it((SMRow)A0, e); it; ++it) 
+            closure.addVertex( it.col() );
     return closure;
 }
 
@@ -166,9 +159,7 @@ MeshSubset SimplicialComplexOperators::link(const MeshSubset& subset) const {
  * Returns: True if given subset is a simplicial complex, false otherwise.
  */
 bool SimplicialComplexOperators::isComplex(const MeshSubset& subset) const {
-
-    // TODO
-    return false; // placeholder
+    return subset.equals( closure(subset) );
 }
 
 /*
