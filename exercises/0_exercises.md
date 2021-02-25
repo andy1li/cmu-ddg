@@ -2,23 +2,23 @@
 
 Show for any **polygonal disk** with V vertices, E edges, and F faces, the following relationship holds: V − E + F = 1 and explain, then, why V − E + F = 2 for any **polygonal sphere**.
 
-| Examples (V)                       | V − E + F (Polygonal disks)                                  | V − E + F (Polygonal spheres)                                |
+| Examples&nbsp;(V)                  | V − E + F (Polygonal disks)                                  | V − E + F (Polygonal spheres)                                |
 | ---------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 1 (・)                             | 1 - 0 + 0 = 1                                                | 1 - 0 + 1 = 2                                                |
 | 2 (—)                              | 2 - 1 + 0 = 1                                                | 2 - 1 + 1 = 2                                                |
 | 3 (▲)                              | 3 - 3 + 1 = 1                                                | 3 - 3 + 2 = 2                                                |
-| 4                                  | ◸ +◢ ⇒ ◪ ⇒◾️:<br />&emsp;4 - 5 + 2 (append ◸)<br />= 4 - 4 + 1 (merge 2 faces)<br />= 1 | △⇒ ◬ ⇒<img width="22" alt="Tetrahedron" src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjMDAwMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHg9IjBweCIgeT0iMHB4Ij48ZGVmcz48c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogIzAwMDsKICAgICAgICBmaWxsLXJ1bGU6IGV2ZW5vZGQ7CiAgICAgIH0KICAgIDwvc3R5bGU+PC9kZWZzPjxnPjxwYXRoIGQ9Ik05MC45NjMsNzQuOTY5IEw4Ljk5NSw3NC45NjkgTDguOTk1LDczLjc1MCBMOS40MTAsNzIuOTY5IEw0OS4xMDAsMy4xNjEgTDUwLjgzNywzLjE2MSBMOTAuNTU5LDcyLjk2OSBMOTAuOTYzLDczLjU5NCBMOTAuOTYzLDc0Ljk2OSBaTTEyLjY4OSw3MS4yNDggTDQ4Ljk2OSw3LjQzOCBMNDkuOTY5LDUuNTkzIEw1MC45NjksNy40MzYgTDg3LjI0MCw3MS4xODEgTDg4LjI5OCw3Mi45NjIgTDg2LjMzNSw3Mi45NjkgTDEzLjcwOCw3Mi45NjkgTDExLjczMCw3Mi45NjIgTDEyLjY4OSw3MS4yNDggWiIgY2xhc3M9ImNscy0xIj48L3BhdGg+PHBhdGggZD0iTTkwLjk2Myw3NC45NjkgTDguOTk1LDc0Ljk2OSBMOC45OTUsNzMuNzUwIEw5LjQxMCw3Mi45NjkgTDQ5LjEwMCwzLjE2MSBMNTAuODM3LDMuMTYxIEw5MC41NTksNzIuOTY5IEw5MC45NjMsNzMuNTk0IEw5MC45NjMsNzQuOTY5IFpNNDguOTY5LDcuNDM4IEwxMi42ODksNzEuMjQ4IEw0OC45NjksNDkuODYzIEw0OC45NjksNy40MzggWk01MC45NjksNy40MzYgTDUwLjk2OSw0OS44NjMgTDg3LjI0MCw3MS4xODEgTDUwLjk2OSw3LjQzNiBaTTQ5Ljk2OSw1MS41OTUgTDEzLjcwOCw3Mi45NjkgTDg2LjMzNSw3Mi45NjkgTDQ5Ljk2OSw1MS41OTUgWiIgY2xhc3M9ImNscy0xIj48L3BhdGg+PC9nPjwvc3ZnPg==">:<br />&emsp;4 - 6 + 4 (glue a tetrahedron)<br />= 4 - 4 + 2 (merge internal faces)<br />= 2 |
-| More                               | ◸ +◾️⇒ ⬟: 5 - 5 + 1 = 1<br /><br />◸ + ⬟ ⇒ ⬢: 6 - 6 + 1 = 1   | <img width="22" alt="Tetrahedron" src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjMDAwMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHg9IjBweCIgeT0iMHB4Ij48ZGVmcz48c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogIzAwMDsKICAgICAgICBmaWxsLXJ1bGU6IGV2ZW5vZGQ7CiAgICAgIH0KICAgIDwvc3R5bGU+PC9kZWZzPjxnPjxwYXRoIGQ9Ik05MC45NjMsNzQuOTY5IEw4Ljk5NSw3NC45NjkgTDguOTk1LDczLjc1MCBMOS40MTAsNzIuOTY5IEw0OS4xMDAsMy4xNjEgTDUwLjgzNywzLjE2MSBMOTAuNTU5LDcyLjk2OSBMOTAuOTYzLDczLjU5NCBMOTAuOTYzLDc0Ljk2OSBaTTEyLjY4OSw3MS4yNDggTDQ4Ljk2OSw3LjQzOCBMNDkuOTY5LDUuNTkzIEw1MC45NjksNy40MzYgTDg3LjI0MCw3MS4xODEgTDg4LjI5OCw3Mi45NjIgTDg2LjMzNSw3Mi45NjkgTDEzLjcwOCw3Mi45NjkgTDExLjczMCw3Mi45NjIgTDEyLjY4OSw3MS4yNDggWiIgY2xhc3M9ImNscy0xIj48L3BhdGg+PHBhdGggZD0iTTkwLjk2Myw3NC45NjkgTDguOTk1LDc0Ljk2OSBMOC45OTUsNzMuNzUwIEw5LjQxMCw3Mi45NjkgTDQ5LjEwMCwzLjE2MSBMNTAuODM3LDMuMTYxIEw5MC41NTksNzIuOTY5IEw5MC45NjMsNzMuNTk0IEw5MC45NjMsNzQuOTY5IFpNNDguOTY5LDcuNDM4IEwxMi42ODksNzEuMjQ4IEw0OC45NjksNDkuODYzIEw0OC45NjksNy40MzggWk01MC45NjksNy40MzYgTDUwLjk2OSw0OS44NjMgTDg3LjI0MCw3MS4xODEgTDUwLjk2OSw3LjQzNiBaTTQ5Ljk2OSw1MS41OTUgTDEzLjcwOCw3Mi45NjkgTDg2LjMzNSw3Mi45NjkgTDQ5Ljk2OSw1MS41OTUgWiIgY2xhc3M9ImNscy0xIj48L3BhdGg+PC9nPjwvc3ZnPg==">+<img width="22" alt="Tetrahedron" src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjMDAwMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHg9IjBweCIgeT0iMHB4Ij48ZGVmcz48c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogIzAwMDsKICAgICAgICBmaWxsLXJ1bGU6IGV2ZW5vZGQ7CiAgICAgIH0KICAgIDwvc3R5bGU+PC9kZWZzPjxnPjxwYXRoIGQ9Ik05MC45NjMsNzQuOTY5IEw4Ljk5NSw3NC45NjkgTDguOTk1LDczLjc1MCBMOS40MTAsNzIuOTY5IEw0OS4xMDAsMy4xNjEgTDUwLjgzNywzLjE2MSBMOTAuNTU5LDcyLjk2OSBMOTAuOTYzLDczLjU5NCBMOTAuOTYzLDc0Ljk2OSBaTTEyLjY4OSw3MS4yNDggTDQ4Ljk2OSw3LjQzOCBMNDkuOTY5LDUuNTkzIEw1MC45NjksNy40MzYgTDg3LjI0MCw3MS4xODEgTDg4LjI5OCw3Mi45NjIgTDg2LjMzNSw3Mi45NjkgTDEzLjcwOCw3Mi45NjkgTDExLjczMCw3Mi45NjIgTDEyLjY4OSw3MS4yNDggWiIgY2xhc3M9ImNscy0xIj48L3BhdGg+PHBhdGggZD0iTTkwLjk2Myw3NC45NjkgTDguOTk1LDc0Ljk2OSBMOC45OTUsNzMuNzUwIEw5LjQxMCw3Mi45NjkgTDQ5LjEwMCwzLjE2MSBMNTAuODM3LDMuMTYxIEw5MC41NTksNzIuOTY5IEw5MC45NjMsNzMuNTk0IEw5MC45NjMsNzQuOTY5IFpNNDguOTY5LDcuNDM4IEwxMi42ODksNzEuMjQ4IEw0OC45NjksNDkuODYzIEw0OC45NjksNy40MzggWk01MC45NjksNy40MzYgTDUwLjk2OSw0OS44NjMgTDg3LjI0MCw3MS4xODEgTDUwLjk2OSw3LjQzNiBaTTQ5Ljk2OSw1MS41OTUgTDEzLjcwOCw3Mi45NjkgTDg2LjMzNSw3Mi45NjkgTDQ5Ljk2OSw1MS41OTUgWiIgY2xhc3M9ImNscy0xIj48L3BhdGg+PC9nPjwvc3ZnPg==">: <br />&emsp;5 - 9 + 6 (glue)<br />= 5 - 5 + 2 (merge) <br />= 2 |
+| 4                                  | ◤+◢ ⇒◾️:<br />4 - 5 + 2 = 1<br />4 - 4 + 1 = 1 (merged)       | &ensp;&ensp;△ ⇒ ◬ ⇒ <img width="22" alt="Tetrahedron" src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjMDAwMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHg9IjBweCIgeT0iMHB4Ij48ZGVmcz48c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogIzAwMDsKICAgICAgICBmaWxsLXJ1bGU6IGV2ZW5vZGQ7CiAgICAgIH0KICAgIDwvc3R5bGU+PC9kZWZzPjxnPjxwYXRoIGQ9Ik05MC45NjMsNzQuOTY5IEw4Ljk5NSw3NC45NjkgTDguOTk1LDczLjc1MCBMOS40MTAsNzIuOTY5IEw0OS4xMDAsMy4xNjEgTDUwLjgzNywzLjE2MSBMOTAuNTU5LDcyLjk2OSBMOTAuOTYzLDczLjU5NCBMOTAuOTYzLDc0Ljk2OSBaTTEyLjY4OSw3MS4yNDggTDQ4Ljk2OSw3LjQzOCBMNDkuOTY5LDUuNTkzIEw1MC45NjksNy40MzYgTDg3LjI0MCw3MS4xODEgTDg4LjI5OCw3Mi45NjIgTDg2LjMzNSw3Mi45NjkgTDEzLjcwOCw3Mi45NjkgTDExLjczMCw3Mi45NjIgTDEyLjY4OSw3MS4yNDggWiIgY2xhc3M9ImNscy0xIj48L3BhdGg+PHBhdGggZD0iTTkwLjk2Myw3NC45NjkgTDguOTk1LDc0Ljk2OSBMOC45OTUsNzMuNzUwIEw5LjQxMCw3Mi45NjkgTDQ5LjEwMCwzLjE2MSBMNTAuODM3LDMuMTYxIEw5MC41NTksNzIuOTY5IEw5MC45NjMsNzMuNTk0IEw5MC45NjMsNzQuOTY5IFpNNDguOTY5LDcuNDM4IEwxMi42ODksNzEuMjQ4IEw0OC45NjksNDkuODYzIEw0OC45NjksNy40MzggWk01MC45NjksNy40MzYgTDUwLjk2OSw0OS44NjMgTDg3LjI0MCw3MS4xODEgTDUwLjk2OSw3LjQzNiBaTTQ5Ljk2OSw1MS41OTUgTDEzLjcwOCw3Mi45NjkgTDg2LjMzNSw3Mi45NjkgTDQ5Ljk2OSw1MS41OTUgWiIgY2xhc3M9ImNscy0xIj48L3BhdGg+PC9nPjwvc3ZnPg=="><br />⇒▲ x 4 ⇒ ▲ x 2 + △ x 2 <br />⇒◾️+ ▢:<br /><br />4 - 6 + 4  = 2<br />4 - 4 + 2 = 2 (merged) |
+| More                               | ◾️ + ▲ ⇒ ⬟: <br />5 - 6 + 2 = 1<br />5 - 5 + 1 = 1 (merged)<br /><br /> ⬟ + ▼ ⇒ ⬢: <br />6 - 7 + 2 = 1<br />6 - 6 + 1 = 1 (merged) | &ensp;&ensp;<img width="22" alt="Tetrahedron" src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjMDAwMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHg9IjBweCIgeT0iMHB4Ij48ZGVmcz48c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogIzAwMDsKICAgICAgICBmaWxsLXJ1bGU6IGV2ZW5vZGQ7CiAgICAgIH0KICAgIDwvc3R5bGU+PC9kZWZzPjxnPjxwYXRoIGQ9Ik05MC45NjMsNzQuOTY5IEw4Ljk5NSw3NC45NjkgTDguOTk1LDczLjc1MCBMOS40MTAsNzIuOTY5IEw0OS4xMDAsMy4xNjEgTDUwLjgzNywzLjE2MSBMOTAuNTU5LDcyLjk2OSBMOTAuOTYzLDczLjU5NCBMOTAuOTYzLDc0Ljk2OSBaTTEyLjY4OSw3MS4yNDggTDQ4Ljk2OSw3LjQzOCBMNDkuOTY5LDUuNTkzIEw1MC45NjksNy40MzYgTDg3LjI0MCw3MS4xODEgTDg4LjI5OCw3Mi45NjIgTDg2LjMzNSw3Mi45NjkgTDEzLjcwOCw3Mi45NjkgTDExLjczMCw3Mi45NjIgTDEyLjY4OSw3MS4yNDggWiIgY2xhc3M9ImNscy0xIj48L3BhdGg+PHBhdGggZD0iTTkwLjk2Myw3NC45NjkgTDguOTk1LDc0Ljk2OSBMOC45OTUsNzMuNzUwIEw5LjQxMCw3Mi45NjkgTDQ5LjEwMCwzLjE2MSBMNTAuODM3LDMuMTYxIEw5MC41NTksNzIuOTY5IEw5MC45NjMsNzMuNTk0IEw5MC45NjMsNzQuOTY5IFpNNDguOTY5LDcuNDM4IEwxMi42ODksNzEuMjQ4IEw0OC45NjksNDkuODYzIEw0OC45NjksNy40MzggWk01MC45NjksNy40MzYgTDUwLjk2OSw0OS44NjMgTDg3LjI0MCw3MS4xODEgTDUwLjk2OSw3LjQzNiBaTTQ5Ljk2OSw1MS41OTUgTDEzLjcwOCw3Mi45NjkgTDg2LjMzNSw3Mi45NjkgTDQ5Ljk2OSw1MS41OTUgWiIgY2xhc3M9ImNscy0xIj48L3BhdGg+PC9nPjwvc3ZnPg=="> + <img width="22" alt="Tetrahedron" src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjMDAwMDAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgdmlld0JveD0iMCAwIDEwMCAxMDAiIHg9IjBweCIgeT0iMHB4Ij48ZGVmcz48c3R5bGU+CiAgICAgIC5jbHMtMSB7CiAgICAgICAgZmlsbDogIzAwMDsKICAgICAgICBmaWxsLXJ1bGU6IGV2ZW5vZGQ7CiAgICAgIH0KICAgIDwvc3R5bGU+PC9kZWZzPjxnPjxwYXRoIGQ9Ik05MC45NjMsNzQuOTY5IEw4Ljk5NSw3NC45NjkgTDguOTk1LDczLjc1MCBMOS40MTAsNzIuOTY5IEw0OS4xMDAsMy4xNjEgTDUwLjgzNywzLjE2MSBMOTAuNTU5LDcyLjk2OSBMOTAuOTYzLDczLjU5NCBMOTAuOTYzLDc0Ljk2OSBaTTEyLjY4OSw3MS4yNDggTDQ4Ljk2OSw3LjQzOCBMNDkuOTY5LDUuNTkzIEw1MC45NjksNy40MzYgTDg3LjI0MCw3MS4xODEgTDg4LjI5OCw3Mi45NjIgTDg2LjMzNSw3Mi45NjkgTDEzLjcwOCw3Mi45NjkgTDExLjczMCw3Mi45NjIgTDEyLjY4OSw3MS4yNDggWiIgY2xhc3M9ImNscy0xIj48L3BhdGg+PHBhdGggZD0iTTkwLjk2Myw3NC45NjkgTDguOTk1LDc0Ljk2OSBMOC45OTUsNzMuNzUwIEw5LjQxMCw3Mi45NjkgTDQ5LjEwMCwzLjE2MSBMNTAuODM3LDMuMTYxIEw5MC41NTksNzIuOTY5IEw5MC45NjMsNzMuNTk0IEw5MC45NjMsNzQuOTY5IFpNNDguOTY5LDcuNDM4IEwxMi42ODksNzEuMjQ4IEw0OC45NjksNDkuODYzIEw0OC45NjksNy40MzggWk01MC45NjksNy40MzYgTDUwLjk2OSw0OS44NjMgTDg3LjI0MCw3MS4xODEgTDUwLjk2OSw3LjQzNiBaTTQ5Ljk2OSw1MS41OTUgTDEzLjcwOCw3Mi45NjkgTDg2LjMzNSw3Mi45NjkgTDQ5Ljk2OSw1MS41OTUgWiIgY2xhc3M9ImNscy0xIj48L3BhdGg+PC9nPjwvc3ZnPg=="><br />⇒ ▲ x 6 ⇒ ▲ x 3 + △ x 3<br />⇒ ⬟ + ⬠: <br /><br />5 - 9 + 6 = 2<br />5 - 5 + 2 = 2 (merged)<br /> |
 |                                    |                                                              |                                                              |
 | **Insights**                       |                                                              |                                                              |
-| Intuition                          | The boundary V and E always pair off and there is **only 1 internal face**. | • After "flattening" any polygonal sphere into an "internal/front" polygonal disk plus an "external/back" face,<br />• and merging all "internal/frontside" faces,<br />• the "boundary" V and E always pair off, with **2 faces left (1 "internal/front" and 1 "external/back")**. |
-| Lemmas                             | Appending a triangle (adding 1 vertex, 2 edges, and 1 face) does not change the EC:<br />(V + 1) - (E + 2) + (F + 1) = V - E + F<br /><br />Merging two faces with a shared edge (subtracting 1 edge and 1 face) does not change the EC:<br />V − (E - 1) + (F - 1) = V − E + F | Glueing a polyhedron onto a face (with vertices k) is the same as inserting a vertex inside the face and connecting the vertices up (adding 1 vertex, k edges, and k-1 face), which does not change the EC:<br /><br />(V + 1) − (E + k) + (F + k - 1) = V − E + F |
+| Intuition                          | After merging all faces, the boundary V and E always pair off and there will be **only 1 interior face**. | • After "flattening" any polygonal sphere into an front polygonal disk plus an back face,<br />• and merging all front faces,<br />• the "boundary" V and E always pair off, with **2 faces left (1 front and 1 back)**. |
+| Lemmas                             | Appending a triangle (adding 1 vertex, 2 edges, and 1 face) does not change the EC:<br />(V + 1) - (E + 2) + (F + 1) = V - E + F<br /><br />Merging two faces with a shared edge (subtracting 1 edge and 1 face) does not change the EC:<br />V − (E - 1) + (F - 1) = V − E + F | Glueing a polyhedron onto a face (with vertices k) is the same as inserting a vertex inside the face and connecting the vertices up (adding 1 vertex, k edges, and k-1 faces), which does not change the EC:<br /><br />(V + 1) − (E + k) + (F + k - 1) = V − E + F |
 |                                    |                                                              |                                                              |
 | **Proof**                          |                                                              |                                                              |
 | Base cases                         | Examples above                                               | Examples above                                               |
 | Suppose it holds for a specifc n≥4 | V<sub>n</sub> - E<sub>n</sub> + F<sub>n</sub> = 1            | V<sub>n</sub> - E<sub>n</sub> + F<sub>n</sub> = 2            |
-| Then for n+1                       | Incrementing V is the same as appending a triangle and merging two faces:<br /><br />&emsp;V<sub>n+1</sub> - E<sub>n+1</sub> + F<sub>n+1</sub><br />=(V<sub>n</sub> + 1) - (E<sub>n</sub> + 2) + (F<sub>n</sub> + 1)<br />=(V<sub>n</sub> + 1) - (E<sub>n</sub> + 2 - 1) + (F<sub>n</sub> + 1 - 1) <br />= V<sub>n</sub> - E<sub>n</sub> + F<sub>n</sub> = 1 | Incrementing V is the same as glueing a polyhedron onto any face (with vertices k):<br /><br />&emsp;V<sub>n+1</sub> - E<sub>n+1</sub> + F<sub>n+1</sub><br />=(V<sub>n</sub> + 1) - (E<sub>n</sub> + k) + (F<sub>n</sub> + k - 1)<br />= V<sub>n</sub> - E<sub>n</sub> + F<sub>n</sub> = 2 |
-| By mathematical induction          | The Euler Characteric = 1 for all polygonal disks with vertices n ∈ ℕ. | The Euler Characteric = 2 for all polygonal spheres with vertices n ∈ ℕ. |
+| Then for n+1                       | Incrementing V is the same as appending a triangle:<br /><br />&emsp;V<sub>n+1</sub> - E<sub>n+1</sub> + F<sub>n+1</sub><br />=(V<sub>n</sub> + 1) - (E<sub>n</sub> + 2) + (F<sub>n</sub> + 1)<br />= V<sub>n</sub> - E<sub>n</sub> + F<sub>n</sub> = 1 | Incrementing V is the same as glueing a polyhedron onto any face (with vertices k):<br /><br />&emsp;V<sub>n+1</sub> - E<sub>n+1</sub> + F<sub>n+1</sub><br />=(V<sub>n</sub> + 1) - (E<sub>n</sub> + k) + (F<sub>n</sub> + k - 1)<br />= V<sub>n</sub> - E<sub>n</sub> + F<sub>n</sub> = 2 |
+| By mathematical induction          | The Euler Characteric = 1 holds for all polygonal disks with vertices n ∈ ℕ. | The Euler Characteric = 2 holds for all polygonal spheres with vertices n ∈ ℕ. |
 
 ---
 
@@ -28,7 +28,98 @@ Show for any **polygonal disk** with V vertices, E edges, and F faces, the follo
 
 These polyhedra are the Platonic solids: **cube, tetrahedron, octahedron, icosahedron and dodecahedron**. Show that this list is indeed exhaustive.
 
-
+TODO
 
 ---
 
+### EXERCISE 2.3 Regular Valence
+
+Show that the only (connected, orientable) simplicial surface for which every vertex has regular valence is a torus (g = 1). You may assume that the surface has finitely many faces.
+
+TODO
+
+---
+
+### EXERCISE 2.4 Minimum Irregular Valence
+
+TODO
+
+---
+
+### EXERCISE 2.5 Mean Valence (Triangle Mesh)
+
+Show that the mean valence approaches six as the number of vertices in a (connected, orientable) simplicial surface goes to infinity, and that the ratio of vertices to edges to triangles hence approaches V : E : F = 1 : 3 : 2.
+
+TODO
+
+---
+
+### EXERCISE 2.6 Mean Valence (Quad Mesh)
+
+Similar to the previous exercise, consider a quad mesh, i.e., a combinatorial surface made entirely out of four-sided quadrilaterials rather than three-sided triangles. Letting Q denote the number of quadrilaterals, give an expression for the ratio V : E : Q in the limit as the number of vertices approaches infinity
+
+TODO
+
+---
+
+### EXERCISE 2.7 Mean Valence (Tetrahedral)
+
+Letting V, E, F, and T be the number of vertices, edges, triangles, and tetrahedra in a manifold simplicial 3-complex, come up with a rough estimate for the ratios V : E : F : T as the number of elements goes to infinity.
+
+TODO
+
+---
+
+### EXERCISE 2.8 Star, Closure, and Link
+
+TODO
+
+---
+
+### EXERCISE 2.9 Boundary and Interior
+
+For the subset K0 indicated above in dark blue (consisting of 12 vertices, 23 edges, and 12 triangles), give the boundary bd(K0 ) and the interior int(K0 ), either by drawing pictures or providing a list of simplices in each set.
+
+TODO
+
+---
+
+### EXERCISE 2.10 Surface as Permutation
+
+TODO
+
+---
+
+### EXERCISE 2.11 Permutation as Surface
+
+TODO
+
+---
+
+### EXERCISE 2.12 Surface as Matrices
+
+TODO
+
+---
+
+### EXERCISE 2.13 Classification of Simplicial 1-Manifolds
+
+Explain why every simplicial 1-manifold (possibly with boundary) cannot contain anything other than paths of edges and closed loops of edges.
+
+TODO
+
+---
+
+### EXERCISE 2.14 Boundary Loops
+
+Explain why the boundary of any simplicial surface (i.e., any simplicial 2-manifold) always has to be a collection of closed loops?
+
+TODO
+
+---
+
+### EXERCISE 2.15 Boundary Has No Boundary
+
+Explain why the boundary bd(K) of a simplicial manifold has no boundary. In other words, why does bd(bd(K)) = ∅?
+
+TODO
