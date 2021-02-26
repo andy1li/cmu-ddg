@@ -170,9 +170,22 @@ bool SimplicialComplexOperators::isComplex(const MeshSubset& subset) const {
  * Returns: int representing the degree of the given complex (-1 if not pure)
  */
 int SimplicialComplexOperators::isPureComplex(const MeshSubset& subset) const {
+    if (!isComplex(subset)) return -1;
 
-    // TODO
-    return -1; // placeholder
+    Vec vertices = buildVertexVector(subset), 
+        edges = buildEdgeVector(subset),
+        countEdges = (edges.transpose() * A0),
+        countFaces = (buildFaceVector(subset).transpose() * A1);
+
+    size_t pureVertices = (vertices.array() * countEdges.array() > 0).count(),
+           pureEdges = (edges.array() * countFaces.array() > 0).count();
+    
+    bool allVerticesPure = subset.vertices.size() == pureVertices,
+         allEdgesPure = subset.edges.size() == pureEdges;
+
+    if (subset.faces.size()) return allEdgesPure && allVerticesPure ? 2 : -1;
+    if (subset.edges.size()) return allVerticesPure ? 1 : -1;
+    else                     return 0;
 }
 
 /*
