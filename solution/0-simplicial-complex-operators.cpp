@@ -131,11 +131,13 @@ MeshSubset SimplicialComplexOperators::star(const MeshSubset& subset) const {
  */
 MeshSubset SimplicialComplexOperators::closure(const MeshSubset& subset) const {
     MeshSubset closure = subset.deepCopy();
+    SMRow A0R = (SMRow)A0, A1R = (SMRow)A1;
+
     for (size_t f : closure.faces)
-        for (SMRowIt it((SMRow)A1, f); it; ++it) 
+        for (SMRowIt it(A1R, f); it; ++it)
             closure.addEdge( it.col() );
     for (size_t e : closure.edges)
-        for (SMRowIt it((SMRow)A0, e); it; ++it) 
+        for (SMRowIt it(A0R, e); it; ++it) 
             closure.addVertex( it.col() );
     return closure;
 }
@@ -174,18 +176,18 @@ int SimplicialComplexOperators::isPureComplex(const MeshSubset& subset) const {
 
     Vec vertices = buildVertexVector(subset), 
         edges = buildEdgeVector(subset),
-        countEdges = (edges.transpose() * A0),
-        countFaces = (buildFaceVector(subset).transpose() * A1);
+        countEdges = edges.transpose() * A0,
+        countFaces = buildFaceVector(subset).transpose() * A1;
 
     size_t pureVertices = (vertices.array() * countEdges.array() > 0).count(),
            pureEdges = (edges.array() * countFaces.array() > 0).count();
-    
+
     bool allVerticesPure = subset.vertices.size() == pureVertices,
          allEdgesPure = subset.edges.size() == pureEdges;
 
     if (subset.faces.size()) return allEdgesPure && allVerticesPure ? 2 : -1;
     if (subset.edges.size()) return allVerticesPure ? 1 : -1;
-    else                     return 0;
+    return 0;
 }
 
 /*
@@ -195,6 +197,8 @@ int SimplicialComplexOperators::isPureComplex(const MeshSubset& subset) const {
  * Returns: The boundary of the given subset.
  */
 MeshSubset SimplicialComplexOperators::boundary(const MeshSubset& subset) const {
+    MeshSubset boundary = MeshSubset();
+    if (isPureComplex(subset) == -1) return boundary;
 
     // TODO
     return subset; // placeholder

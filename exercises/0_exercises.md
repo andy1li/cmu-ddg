@@ -78,7 +78,7 @@ TODO
 
 ### EXERCISE 2.9 Boundary and Interior
 
-For the subset K0 indicated above in dark blue (consisting of 12 vertices, 23 edges, and 12 triangles), give the boundary bd(K0 ) and the interior int(K0 ), either by drawing pictures or providing a list of simplices in each set.
+For the subset K' indicated above in dark blue (consisting of 12 vertices, 23 edges, and 12 triangles), give the boundary bd(K') and the interior int(K'), either by drawing pictures or providing a list of simplices in each set.
 
 TODO
 
