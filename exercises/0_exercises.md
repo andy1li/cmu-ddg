@@ -23,10 +23,9 @@ Show for any **polygonal disk** with V vertices, E edges, and F faces, the follo
 ---
 
 ### EXERCISE 2.2 Platonic Solids
+<img height="300" alt="2.10 surface" src="./assets/2.2_Platonic_Solids.png" >
 
-![Platonic Solids](http://brickisland.net/DDGSpring2021/wp-content/uploads/2019/01/LatonicSolids-1.svg)
-
-These polyhedra are the Platonic solids: **cube, tetrahedron, octahedron, icosahedron and dodecahedron**. Show that this list is indeed exhaustive.
+These polyhedra are the Platonic solids: **tetrahedron, icosahedron, octahedron, dodecahedron, and cube**. Show that this list is indeed exhaustive.
 
 TODO
 
@@ -72,7 +71,9 @@ TODO
 
 ### EXERCISE 2.8 Star, Closure, and Link
 
-TODO
+For the subset S indicated below in dark blue (consisting of three vertices, three edges, and two triangles), give the star St(S), the closure Cl(S), and the link Lk(S), either by drawing pictures or providing a list of simplices in each set.
+
+[Trivial after Coding Assignment 0.]
 
 ---
 
@@ -80,17 +81,25 @@ TODO
 
 For the subset K' indicated above in dark blue (consisting of 12 vertices, 23 edges, and 12 triangles), give the boundary bd(K') and the interior int(K'), either by drawing pictures or providing a list of simplices in each set.
 
-TODO
+[Trivial after Coding Assignment 0.]
 
 ---
 
 ### EXERCISE 2.10 Surface as Permutation
 
-TODO
+For the combinatorial surface pictured below, give the twin and next permutations η and ρ (resp.) by filling out the following tables:
+<img height="250" alt="2.10 surface" src="./assets/2.10_Surface_as_Permutation.png" >
+
+| h    | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| η(h) | 4    | 2    | 1    | 5    | 0    | 3    | 7    | 6    | 9    | 8    |
+| ρ(h) | 1    | 2    | 0    | 4    | 5    | 6    | 3    | 9    | 7    | 8    |
 
 ---
 
 ### EXERCISE 2.11 Permutation as Surface
+
+For the permutation ρ given below, describe the combinatorial surface it describes—either in words, or by drawing a picture. You should assume that η is determined as described in Section 2.5, i.e., the twin of an even halfedge h is h + 1; the twin of an odd halfedge h is h − 1.
 
 TODO
 

@@ -206,7 +206,7 @@ MeshSubset SimplicialComplexOperators::boundary(const MeshSubset& subset) const 
         countEdges = edges.transpose() * A0,
         countFaces = buildFaceVector(subset).transpose() * A1;
     auto onceVertices = vertices.array() * countEdges.array() == 1, 
-        onceEdges = edges.array() * countFaces.array() == 1;
+         onceEdges = edges.array() * countFaces.array() == 1;
 
     if (degree == 1) 
         range(mesh->nVertices())
