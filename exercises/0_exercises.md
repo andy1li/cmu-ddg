@@ -101,7 +101,13 @@ For the combinatorial surface pictured below, give the twin and next permutation
 
 For the permutation ρ given below, describe the combinatorial surface it describes—either in words, or by drawing a picture. You should assume that η is determined as described in Section 2.5, i.e., the twin of an even halfedge h is h + 1; the twin of an odd halfedge h is h − 1.
 
-TODO
+| h    | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    | 10   | 11   | 12   | 13   | 14   | 15   |
+| ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| ρ(h) | 8    | 2    | 14   | 4    | 12   | 6    | 10   | 0    | 7    | 15   | 5    | 9    | 3    | 11   | 1    | 13   |
+
+It's a torus:
+
+![](assets/2.11_Permutation_as_Surface.png)
 
 ---
 

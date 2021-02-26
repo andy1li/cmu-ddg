@@ -11,7 +11,7 @@
 | 2A       |                                                              | What is a "Mesh?"                                         | ✅             |
 | 2B       |                                                              | Introduction to Manifolds                                 | ✅             |
 |          | Reading 2                                                    | Chapter 2, Pages 7–20                                     | ✅             |
-|          | [Asgmt 0 (Written)](https://github.com/andy1li/cmu-ddg/blob/main/exercises/0_exercises.md) | Chapter 2, 15 Exercises<br />✅ 1, 8~10 <br />☑️ 2~7, 11~15 | ☑️<br /><br /> |
+|          | [Asgmt 0 (Written)](https://github.com/andy1li/cmu-ddg/blob/main/exercises/0_exercises.md) | Chapter 2, 15 Exercises<br />✅ 1, 8-11 <br />☑️ 2-7, 12-15 | ☑️<br /><br /> |
 |          | [Asgmt 0 (Coding)](https://github.com/andy1li/cmu-ddg/blob/main/solution/0-simplicial-complex-operators.cpp) | Simplicial Complex Operators                              | ✅             |
 |          |                                                              |                                                           |               |
 | 3        |                                                              | Exterior Algebra                                          | ☑️             |
