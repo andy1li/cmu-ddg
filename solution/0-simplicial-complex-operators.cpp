@@ -198,8 +198,21 @@ int SimplicialComplexOperators::isPureComplex(const MeshSubset& subset) const {
  */
 MeshSubset SimplicialComplexOperators::boundary(const MeshSubset& subset) const {
     MeshSubset boundary = MeshSubset();
-    if (isPureComplex(subset) == -1) return boundary;
+    int degree = isPureComplex(subset);
+    if (degree == -1) return boundary;
 
-    // TODO
-    return subset; // placeholder
+    Vec vertices = buildVertexVector(subset), 
+        edges = buildEdgeVector(subset),
+        countEdges = edges.transpose() * A0,
+        countFaces = buildFaceVector(subset).transpose() * A1;
+    auto onceVertices = vertices.array() * countEdges.array() == 1, 
+        onceEdges = edges.array() * countFaces.array() == 1;
+
+    if (degree == 1) 
+        range(mesh->nVertices())
+            if (onceVertices[i]) boundary.addVertex(i);
+    if (degree == 2)
+        range(mesh->nEdges()) 
+            if (onceEdges[i]) boundary.addEdge(i);
+    return closure(boundary);
 }
