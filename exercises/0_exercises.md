@@ -23,7 +23,7 @@ Show for any **polygonal disk** with V vertices, E edges, and F faces, the follo
 ---
 
 ### EXERCISE 2.2 Platonic Solids
-<img height="300" alt="2.10 surface" src="./assets/2.2_Platonic_Solids.png" >
+<img height="300" alt="2.10 surface" src="assets/2.2_Platonic_Solids.png" >
 
 These polyhedra are the Platonic solids: **tetrahedron, icosahedron, octahedron, dodecahedron, and cube**. Show that this list is indeed exhaustive.
 
@@ -88,7 +88,7 @@ For the subset K' indicated above in dark blue (consisting of 12 vertices, 23 ed
 ### EXERCISE 2.10 Surface as Permutation
 
 For the combinatorial surface pictured below, give the twin and next permutations η and ρ (resp.) by filling out the following tables:
-<img height="250" alt="2.10 surface" src="./assets/2.10_Surface_as_Permutation.png" >
+<img height="250" alt="2.10 surface" src="assets/2.10_Surface_as_Permutation.png" >
 
 | h    | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    | 8    | 9    |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -106,14 +106,19 @@ For the permutation ρ given below, describe the combinatorial surface it descri
 | ρ(h) | 8    | 2    | 14   | 4    | 12   | 6    | 10   | 0    | 7    | 15   | 5    | 9    | 3    | 11   | 1    | 13   |
 
 It's a torus:
-
 ![](assets/2.11_Permutation_as_Surface.png)
 
 ---
 
 ### EXERCISE 2.12 Surface as Matrices
 
-TODO
+Give the adjacency matrices A<sub>0</sub> and A<sub>1</sub> for the simplicial disk depicted in the figure below.
+
+<img height="250" alt="2.12 surface" src="assets/2.12 Surface as Matrices.png" >
+
+| A<sub>0</sub>                                                | A<sub>1</sub>                                                |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 1 1 0 0 0 <br/>1 0 1 0 0 <br/>1 0 0 1 0 <br/>1 0 0 0 1 <br/>0 1 0 0 1 <br/>0 1 1 0 0 <br/>0 0 1 1 0 <br/>0 0 0 1 1 | 1 0 0 1 1 0 0 0 <br/>1 1 0 0 0 1 0 0 <br/>0 1 1 0 0 0 1 0 <br/>0 0 1 1 0 0 0 1<br /><br /><br /><br /> |
 
 ---
 
