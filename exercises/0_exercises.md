@@ -23,17 +23,17 @@ Show for any **polygonal disk** with V vertices, E edges, and F faces, the follo
 ---
 
 ### EXERCISE 2.2 Platonic Solids
-<img height="300" alt="2.10 surface" src="assets/2.2_Platonic_Solids.png" >
+<img height="300" alt="2.2 Platonic Solids" src="assets/2.2_Platonic_Solids.png" >
 
-These polyhedra are the Platonic solids: **tetrahedron, icosahedron, octahedron, dodecahedron, and cube**. Show that this list is indeed exhaustive.
+These polyhedra are the Platonic solids: **tetrahedron, icosahedron, octahedron, dodecahedron, and cube**. Show that this list is indeed exhaustive. [[Wiki](https://www.wikiwand.com/en/Platonic_solid#/Topological_proof)]
 
-TODO
+Key Insight: `  pV = 2E = qF`, where p is the "number of edges meeting at each vertex" and q is the "number of edges of each face".
 
 ---
 
 ### EXERCISE 2.3 Regular Valence
 
-Show that the only (connected, orientable) simplicial surface for which every vertex has regular valence is a torus (g = 1). You may assume that the surface has finitely many faces.
+Show that the only (connected, orientable) simplicial surface for which every vertex has regular valence is a torus (g = 1).
 
 TODO
 
@@ -71,17 +71,13 @@ TODO
 
 ### EXERCISE 2.8 Star, Closure, and Link
 
-For the subset S indicated below in dark blue (consisting of three vertices, three edges, and two triangles), give the star St(S), the closure Cl(S), and the link Lk(S), either by drawing pictures or providing a list of simplices in each set.
-
-[Trivial after Coding Assignment 0.]
+For the subset S indicated below in dark blue (consisting of three vertices, three edges, and two triangles), give the star St(S), the closure Cl(S), and the link Lk(S), either by drawing pictures or providing a list of simplices in each set. [Trivial after Coding Assignment 0]
 
 ---
 
 ### EXERCISE 2.9 Boundary and Interior
 
-For the subset K' indicated above in dark blue (consisting of 12 vertices, 23 edges, and 12 triangles), give the boundary bd(K') and the interior int(K'), either by drawing pictures or providing a list of simplices in each set.
-
-[Trivial after Coding Assignment 0.]
+For the subset K' indicated above in dark blue (consisting of 12 vertices, 23 edges, and 12 triangles), give the boundary bd(K') and the interior int(K'), either by drawing pictures or providing a list of simplices in each set. [Trivial after Coding Assignment 0]
 
 ---
 
@@ -106,7 +102,7 @@ For the permutation ρ given below, describe the combinatorial surface it descri
 | ρ(h) | 8    | 2    | 14   | 4    | 12   | 6    | 10   | 0    | 7    | 15   | 5    | 9    | 3    | 11   | 1    | 13   |
 
 It's a torus:
-![](assets/2.11_Permutation_as_Surface.png)
+![2.11 Torus](assets/2.11_Permutation_as_Surface.png)
 
 ---
 
@@ -114,7 +110,7 @@ It's a torus:
 
 Give the adjacency matrices A<sub>0</sub> and A<sub>1</sub> for the simplicial disk depicted in the figure below.
 
-<img height="250" alt="2.12 surface" src="assets/2.12 Surface as Matrices.png" >
+<img height="240" alt="2.12 surface" src="assets/2.12 Surface as Matrices.png" >
 
 | A<sub>0</sub>                                                | A<sub>1</sub>                                                |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
