@@ -83,5 +83,7 @@ In R<sup>3</sup>, let α = 2e<sub>3</sub> and β = e<sub>1</sub> − e<sub>2</su
 
 ## 2 Exterior Calculus in R<sup>n</sup>
 
+
+
 ## 3 Discrete Exterior Calculus
 

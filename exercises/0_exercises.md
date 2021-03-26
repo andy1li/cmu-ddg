@@ -28,6 +28,7 @@ Show for any **polygonal disk** with V vertices, E edges, and F faces, the follo
 These polyhedra are the Platonic solids: **tetrahedron, icosahedron, octahedron, dodecahedron, and cube**. Show that this list is indeed exhaustive. [[Wiki](https://www.wikiwand.com/en/Platonic_solid#/Topological_proof)]
 
 Key Insight: `  pV = 2E = qF`, where p is the "number of edges meeting at each vertex" and q is the "number of edges of each face". ⇒ `(2E / p) - E + (2E / q) = 2`.
+
 ---
 
 ### EXERCISE 2.3 Regular Valence
