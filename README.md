@@ -2,7 +2,7 @@
 
 ![](https://brickisland.net/DDGSpring2021/wp-content/uploads/2019/01/cropped-cropped-header.png)
 
-[Videos](https://www.youtube.com/playlist?list=PL9_jI1bdZmz0hIrNCMQW1YmZysAiIYSSS) | [Notes](http://www.cs.cmu.edu/~kmcrane/Projects/DDG/paper.pdf) | [Course Home](http://geometry.cs.cmu.edu/ddg)
+[Videos](https://www.youtube.com/playlist?list=PL9_jI1bdZmz0hIrNCMQW1YmZysAiIYSSS) | [Book](http://www.cs.cmu.edu/~kmcrane/Projects/DDG/paper.pdf) | [Slides](https://github.com/andy1li/cmu-ddg/tree/main/slides) | [Course Home](http://geometry.cs.cmu.edu/ddg)
 
 | Lectures | Tasks                                                        | Title / Detail                                               | Done?                                                        |
 | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -24,7 +24,7 @@
 | 9        |                                                              | Discrete Exterior Calculus                                   | ☑️                                                            |
 |          | Reading 4                                                    | Chapter 4: Sections 4.6-4.8                                  | ☑️                                                            |
 |          | [Asgmt 1 (Written)](https://github.com/andy1li/cmu-ddg/blob/main/exercises/1_exercises.md) | [Exterior Calculus](https://brickisland.net/DDGSpring2021/wp-content/uploads/2021/03/A1_Written_ExteriorCalculus.pdf) | ☑️                                                            |
-|          | [Asgmt 1 (Coding)](https://github.com/andy1li/cmu-ddg/blob/main/solution/1-discrete-exterior-calculus.cpp) | core/geometry.cpp: <br />☑️ 1. cotan<br />☑️ 2. barycentricDualArea<br /><br />core/discrete-exterior-calculus.cpp:<br />☑️ 1. buildHodgeStar0Form<br />☑️ 2. buildHodgeStar1Form<br />☑️ 3. buildHodgeStar2Form<br />☑️ 4. buildExteriorDerivative0Form<br />☑️ 5. buildExteriorDerivative1Form | ☑️<br /><br /><br /><br /><br /><br /><br /><br /><br />      |
+|          | [Asgmt 1 (Coding)](https://github.com/andy1li/cmu-ddg/blob/main/solution/1-discrete-exterior-calculus.cpp) | core/geometry.cpp: <br />☑️ 1. cotan<br />☑️ 2. barycentricDualArea<br /><br />core/discrete-exterior-calculus.cpp:<br />☑️ 1. buildHodgeStar0Form<br />☑️ 2. buildHodgeStar1Form<br />☑️ 3. buildHodgeStar2Form<br />✅ 4. buildExteriorDerivative0Form<br />✅ 5. buildExteriorDerivative1Form | ☑️<br /><br /><br /><br /><br /><br /><br /><br /><br />      |
 |          |                                                              |                                                              |                                                              |
 | 10       |                                                              | Smooth Curves                                                | ☑️                                                            |
 | 11       |                                                              | Discrete Curves                                              | ☑️                                                            |

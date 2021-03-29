@@ -29,6 +29,9 @@
 
 #include "geometrycentral/surface/vertex_position_geometry.h"
 
+using SM = Eigen::SparseMatrix<double>;
+using Trp = Eigen::Triplet<double>;
+
 namespace geometrycentral {
 namespace surface {
 
@@ -77,9 +80,14 @@ SparseMatrix<double> VertexPositionGeometry::buildHodgeStar2Form() const {
  * Returns: A sparse diagonal matrix representing the exterior derivative that can be applied to discrete 0-forms.
  */
 SparseMatrix<double> VertexPositionGeometry::buildExteriorDerivative0Form() const {
-
-    // TODO
-    return identityMatrix<double>(1); // placeholder
+    std::vector<Trp> triplets;
+    for (Edge e : mesh.edges()) {
+        triplets.push_back( Trp(e.getIndex(), e.firstVertex().getIndex(), -1) );
+        triplets.push_back( Trp(e.getIndex(), e.secondVertex().getIndex(), 1) );
+    }
+    SM matrix(mesh.nEdges(), mesh.nVertices());
+    matrix.setFromTriplets(triplets.begin(), triplets.end());
+    return matrix;
 }
 
 /*
@@ -89,9 +97,17 @@ SparseMatrix<double> VertexPositionGeometry::buildExteriorDerivative0Form() cons
  * Returns: A sparse diagonal matrix representing the exterior derivative that can be applied to discrete 1-forms.
  */
 SparseMatrix<double> VertexPositionGeometry::buildExteriorDerivative1Form() const {
-
-    // TODO
-    return identityMatrix<double>(1); // placeholder
+    std::vector<Trp> triplets;
+    for (Face f : mesh.faces()) 
+        for (Halfedge he : f.adjacentHalfedges()) {
+            double orientation = he.getIndex() < he.twin().getIndex() ? 1 : -1;
+            triplets.push_back( 
+                Trp(f.getIndex(), he.edge().getIndex(), orientation) 
+            );
+        } 
+    SM matrix(mesh.nFaces(), mesh.nEdges());
+    matrix.setFromTriplets(triplets.begin(), triplets.end());
+    return matrix;
 }
 
 } // namespace surface
