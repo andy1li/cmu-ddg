@@ -95,7 +95,7 @@ double VertexPositionGeometry::cotan(Halfedge he) const {
  * Returns: The barycentric dual area of the given vertex.
  */
 double VertexPositionGeometry::barycentricDualArea(Vertex v) const {
-    double area = .0;
+    double area = 0;
     for(Face f : v.adjacentFaces()) area += faceArea(f) / 3;
     return area;
 }
@@ -240,9 +240,12 @@ double VertexPositionGeometry::scalarMeanCurvature(Vertex v) const {
  * Returns: The circumcentric dual area of the given vertex.
  */
 double VertexPositionGeometry::circumcentricDualArea(Vertex v) const {
-
-    // TODO
-    return 0; // placeholder
+    double area = 0;
+    for(Edge e : v.adjacentEdges()) {
+        Halfedge he = e.halfedge();
+        area += pow(edgeLength(e), 2) * (cotan(he) + cotan(he.twin()));
+    }
+    return area / 8;
 }
 
 /*

@@ -10,9 +10,21 @@
 
 (c) v ∧ v = (e<sub>1</sub> + 2e<sub>2</sub>) ∧ (e<sub>1</sub> + 2e<sub>2</sub>) = e<sub>1</sub>∧e<sub>1</sub> + 2e<sub>1</sub>e<sub>2</sub>  + 2e<sub>2</sub>∧e<sub>1</sub> + 4e<sub>2</sub>e<sub>2</sub> = 2e<sub>1</sub>e<sub>2</sub> - 2e<sub>1</sub>∧e<sub>2</sub> = 0.
 
-**Exercise 2.** TODO
+**Exercise 2.** Consider the following 1-vectors in R<sup>2</sup> : α<sub>0</sub> = e<sub>1</sub> + e<sub>2</sub>, α<sub>1</sub> = e<sub>1</sub> + 2e<sub>2</sub>, α<sub>3</sub> = e<sub>1</sub> + 4e<sub>2</sub>
+Compute α<sub>0</sub> ∧ α<sub>1</sub> ∧ α<sub>2</sub> and give an interpretation of the result.
 
-**Exercise 3.** TODO
+α<sub>0</sub> ∧ α<sub>1</sub> ∧ α<sub>2</sub> = (e<sub>1</sub> + e<sub>2</sub>) ∧ (e<sub>1</sub> + 2e<sub>2</sub>) ∧ (e<sub>1</sub> + 4e<sub>2</sub>) = (2e<sub>1</sub>∧e<sub>2</sub> + e<sub>2</sub>∧e<sub>1</sub>) ∧ (e<sub>1</sub> + 4e<sub>2</sub>) = 0.
+
+The result is zero because 3-vectors cannot exist in R<sup>2</sup>.
+
+**Exercise 3.** Let u = e<sub>1</sub> + e<sub>2</sub> + e<sub>3</sub> and v = e<sub>1</sub> - e<sub>2</sub> + e<sub>3</sub> be 1-vectors in R<sup>3</sup> . 
+Compute both u ∧ v and u × v. What’s the difference between these two quantities?
+
+u ∧ v = (e<sub>1</sub> + e<sub>2</sub>+ e<sub>3</sub>) ∧ (e<sub>1</sub> - e<sub>2</sub> + e<sub>3</sub>) = (-e<sub>1</sub>∧e<sub>2</sub>+ e<sub>1</sub>∧e<sub>3</sub>) + (e<sub>2</sub>∧e<sub>1</sub> + e<sub>2</sub>∧e<sub>3</sub>) + (e<sub>3</sub>e<sub>1</sub> - e<sub>3</sub>e<sub>2</sub>) = 2e<sub>2</sub>∧e<sub>3</sub> - 2e<sub>1</sub>∧e<sub>2</sub>
+
+u × v = (-e<sub>3</sub>×e<sub>2</sub> + e<sub>2</sub>×e<sub>3</sub>) + (e<sub>3</sub>×e<sub>1</sub> - e<sub>1</sub>×e<sub>3</sub>) + (-e<sub>2</sub>×e<sub>1</sub> - e<sub>1</sub>×e<sub>2</sub>) = 2e1 + () + () =2e<sub>2</sub>∧e<sub>3</sub> - 2e<sub>2</sub>∧e<sub>3</sub> 
+
+e~1~
 
 **Exercise 4.** TODO 
 
@@ -50,7 +62,7 @@ and ★β = ★(e<sub>1</sub> - e<sub>2</sub> + 2e<sub>3</sub>) =  e<sub>2</sub>
 
 (d) Why do (b) and (c) have different answers?
 
-
+TODO
 
 ---
 
@@ -66,18 +78,18 @@ Since taking ★ in  R<sup>2</sup> is a CW rotation, doing it twice results in a
 Let w = ae<sub>1</sub> + be<sub>2</sub> + ce<sub>3</sub>. ★(★w) = ★(★(ae<sub>1</sub> + be<sub>2</sub> + ce<sub>3</sub>)) 
 = ★(ae<sub>2</sub>∧e<sub>3</sub> - be<sub>1</sub>∧e<sub>3</sub> + ce<sub>1</sub>∧e<sub>2</sub>) = ae<sub>1</sub> + be<sub>2</sub> + ce<sub>3</sub> = w.
 
-(c) (Extra credit) Show for all n ≥ 2, that ★(★w) = (−1) n+1w. 
+(c) (Extra credit) Show for all n ≥ 2, that ★(★w) = (−1) n+1w. TODO
 
-(d) (Extra credit) If w were a k-vector in R<sup>n</sup> , what can you say about ★(★w)?
+(d) (Extra credit) If w were a k-vector in R<sup>n</sup> , what can you say about ★(★w)? TODO
 
 ---
 
 **Exercise 8.** (Putting it all together.) 
 In R<sup>3</sup>, let α = 2e<sub>3</sub> and β = e<sub>1</sub> − e<sub>2</sub> be 1-vectors, and let γ = e<sub>2</sub> ∧ e<sub>3</sub> be a 2-vector. 
 
-(a) Compute α ∧ (β + ★γ). 
+(a) Compute α ∧ (β + ★γ). TODO
 
-(b) Compute ★(γ ∧ ★(α ∧ β)).
+(b) Compute ★(γ ∧ ★(α ∧ β)). TODO
 
 ---
 
