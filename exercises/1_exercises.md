@@ -2,7 +2,7 @@
 
 ### 1.1 Wedge product and k-vectors
 
-**Exercise 1.** Let v = e<sub>1</sub> + 2e<sub>2</sub> and w = e<sub>2</sub> + 2e<sub>3</sub> be 1-vectors in R3 . Compute 
+**Exercise 1.** Let v = e<sub>1</sub> + 2e<sub>2</sub> and w = e<sub>2</sub> + 2e<sub>3</sub> be 1-vectors in R<sup>3</sup>. Compute
 
 (a) v ∧ w = (e<sub>1</sub> + 2e<sub>2</sub>) ∧ (e<sub>2</sub> + 2e<sub>3</sub>) = e<sub>1</sub>∧e<sub>2</sub> + 2e<sub>1</sub>∧e<sub>3</sub> + 2e<sub>2</sub>∧e<sub>2</sub> + 4e<sub>2</sub>∧e<sub>3</sub> = e<sub>1</sub>∧e<sub>2</sub> + 2e<sub>1</sub>∧e<sub>3</sub> + 4e<sub>2</sub>∧e<sub>3</sub>.
 
@@ -20,13 +20,29 @@ The result is zero because 3-vectors cannot exist in R<sup>2</sup>.
 **Exercise 3.** Let u = e<sub>1</sub> + e<sub>2</sub> + e<sub>3</sub> and v = e<sub>1</sub> - e<sub>2</sub> + e<sub>3</sub> be 1-vectors in R<sup>3</sup> . 
 Compute both u ∧ v and u × v. What’s the difference between these two quantities?
 
-u ∧ v = (e<sub>1</sub> + e<sub>2</sub>+ e<sub>3</sub>) ∧ (e<sub>1</sub> - e<sub>2</sub> + e<sub>3</sub>) = (-e<sub>1</sub>∧e<sub>2</sub>+ e<sub>1</sub>∧e<sub>3</sub>) + (e<sub>2</sub>∧e<sub>1</sub> + e<sub>2</sub>∧e<sub>3</sub>) + (e<sub>3</sub>e<sub>1</sub> - e<sub>3</sub>e<sub>2</sub>) = 2e<sub>2</sub>∧e<sub>3</sub> - 2e<sub>1</sub>∧e<sub>2</sub>
+u ∧ v = (e<sub>1</sub> + e<sub>2</sub> + e<sub>3</sub>) ∧ (e<sub>1</sub> - e<sub>2</sub> + e<sub>3</sub>) = (-e<sub>1</sub>∧e<sub>2</sub>+ e<sub>1</sub>∧e<sub>3</sub>) + (e<sub>2</sub>∧e<sub>1</sub> + e<sub>2</sub>∧e<sub>3</sub>) + (e<sub>3</sub>e<sub>1</sub> - e<sub>3</sub>e<sub>2</sub>) = 2e<sub>2</sub>∧e<sub>3</sub> - 2e<sub>1</sub>∧e<sub>2</sub>.
 
-u × v = (-e<sub>3</sub>×e<sub>2</sub> + e<sub>2</sub>×e<sub>3</sub>) + (e<sub>3</sub>×e<sub>1</sub> - e<sub>1</sub>×e<sub>3</sub>) + (-e<sub>2</sub>×e<sub>1</sub> - e<sub>1</sub>×e<sub>2</sub>) = 2e1 + () + () =2e<sub>2</sub>∧e<sub>3</sub> - 2e<sub>2</sub>∧e<sub>3</sub> 
+u × v = 2e<sub>2</sub>×e<sub>3</sub> - 2e<sub>1</sub>×e<sub>2</sub> = 2e<sub>1</sub> - 2e<sub>3</sub>.
 
-e~1~
+u × v = ★(u ∧ v).
 
-**Exercise 4.** TODO 
+**Exercise 4.** Let u = e<sub>1</sub> + e<sub>2</sub> - e<sub>3</sub>, v = e<sub>1</sub> - e<sub>2</sub>+ 2e<sub>3</sub>, and w = 3e<sub>1</sub> + e<sub>2</sub>. Compute 
+
+(a) u ∧ v + v ∧ w = (e<sub>1</sub> + e<sub>2</sub> - e<sub>3</sub>) ∧ (e<sub>1</sub> - e<sub>2</sub>+ 2e<sub>3</sub>) + (e<sub>1</sub> - e<sub>2</sub>+ 2e<sub>3</sub>) ∧ ( 3e<sub>1</sub> + e<sub>2</sub>)
+
+= (-e<sub>1</sub>∧e<sub>2</sub> + 2e<sub>1</sub>∧e<sub>3</sub> + e<sub>2</sub>∧e<sub>1</sub> + 2e<sub>2</sub>∧e<sub>3</sub> - e<sub>3</sub>∧e<sub>1</sub> + e<sub>3</sub>∧e<sub>2</sub>) + (e<sub>1</sub>∧e<sub>2</sub> - 3e<sub>2</sub>∧e<sub>1</sub> + 6e<sub>3</sub>∧e<sub>1</sub> + 2e<sub>3</sub>∧e<sub>2</sub>)
+
+= (-e<sub>1</sub>∧e<sub>2</sub> - e<sub>1</sub>∧e<sub>2</sub> + e<sub>1</sub>∧e<sub>2</sub> + 3e<sub>1</sub>∧e<sub>2</sub>)  + (2e<sub>1</sub>∧e<sub>3</sub> + e<sub>1</sub>∧e<sub>3</sub> - 6e<sub>1</sub>∧e<sub>3</sub>) + (2e<sub>2</sub>∧e<sub>3</sub> - e<sub>2</sub>∧e<sub>3</sub>  - 2e<sub>2</sub>∧e<sub>3</sub>)
+
+= 2e<sub>1</sub>∧e<sub>2</sub> - 3e<sub>1</sub>∧e<sub>3</sub> - e<sub>2</sub>∧e<sub>3</sub>
+
+(b) (u ∧ v) ∧ w = ((e<sub>1</sub> + e<sub>2</sub> - e<sub>3</sub>) ∧ (e<sub>1</sub> - e<sub>2</sub>+ 2e<sub>3</sub>)) ∧ (3e<sub>1</sub> + e<sub>2</sub>)
+
+= (-e<sub>1</sub>∧e<sub>2</sub> + 2e<sub>1</sub>∧e<sub>3</sub> + e<sub>2</sub>∧e<sub>1</sub> + 2e<sub>2</sub>∧e<sub>3</sub> - e<sub>3</sub>∧e<sub>1</sub> + e<sub>3</sub>∧e<sub>2</sub>) ∧ (3e<sub>1</sub> + e<sub>2</sub>)
+
+= 2e<sub>1</sub>∧e<sub>3</sub>∧e<sub>2</sub> + 6e<sub>2</sub>∧e<sub>3</sub>∧e<sub>1</sub> - e<sub>3</sub>∧e<sub>1</sub>∧e<sub>2 </sub>+ 3e<sub>3</sub>∧e<sub>2</sub>∧e<sub>1</sub>
+
+= -2e<sub>1</sub>∧e<sub>2</sub>∧e<sub>3</sub> + 6e<sub>1</sub>∧e<sub>2</sub>∧e<sub>3</sub> - e<sub>1</sub>∧e<sub>2</sub>∧e<sub>3</sub> - 3e<sub>1</sub>∧e<sub>2</sub>∧e<sub>3</sub> = 0
 
 
 ---
